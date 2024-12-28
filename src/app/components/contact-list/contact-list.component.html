@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Titre ou Logo -->
+      <a class="navbar-brand" href="#">CoursApp</a>
+  
+      <!-- Bouton pour le menu responsive -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Liens du menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <!-- Lien vers la liste des cours -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/courses" routerLinkActive="active">Course List</a>
+          </li>
+          
+          <!-- Lien vers la liste des contacts -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contacts" routerLinkActive="active">Contact List</a>
+          </li>
+        </ul>
+        <!-- Bouton pour se connecter -->
+        <div class="d-flex">
+            <a class="btn btn-primary" routerLink="">Sign out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+<div class="container mt-5">
+    <h2>Contact List</h2>
+  
+    
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Message</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.message }}</td>
+          <td>
+            
+            <!-- Bouton pour supprimer -->
+            <button class="btn btn-danger btn-sm" (click)="deleteContact(contact.id!)">
+                Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
